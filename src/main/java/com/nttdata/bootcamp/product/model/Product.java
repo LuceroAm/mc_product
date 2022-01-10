@@ -30,6 +30,7 @@ public class Product {
     private String id = UUID.randomUUID().toString();
     private ProductType productType;
     private AccountType accountType;
+    private CreditType creditType;
     private String accountNumber;
     private TypeDocument typeDocument;
     private String numberDocument;
