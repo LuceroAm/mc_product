@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.mapstruct.factory.Mappers;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -31,34 +32,35 @@ import reactor.core.publisher.Mono;
  */
 @Service
 @AllArgsConstructor
-//@NoArgsConstructor
+@NoArgsConstructor
 @Slf4j
+//@ComponentScan
 public class ProductServiceImpl implements ProductService {
-//    @Autowired
+    @Autowired
     private ProductRepository productRepository;
 
-//    @Autowired
+    @Autowired
     private static final ProductMapper mapper = Mappers.getMapper(ProductMapper.class);
 
     @Override
     public Mono<ProductResponse> create(ProductRequest productRequest) {
-        log.info("Guardando datos del Producto");
+//        log.info("Guardando datos del Producto");
         return productRepository.save(mapper.toEntity(productRequest))
                 .map(mapper::toResponse);
 //        return productRepository.save(setProduct(productRequest))
 //                 .map(this::getProduct);
     }
 
-    private Product setProduct (ProductRequest request){
-        Product p = new Product();
-        p.setAccountNumber(request.getAccountNumber());
-        return p;
-    }
-    private ProductResponse getProduct (Product model){
-        ProductResponse p = new ProductResponse();
-        p.setAccountNumber(model.getAccountNumber());
-        return p;
-    }
+//    private Product setProduct (ProductRequest request){
+//        Product p = new Product();
+//        p.setAccountNumber(request.getAccountNumber());
+//        return p;
+//    }
+//    private ProductResponse getProduct (Product model){
+//        ProductResponse p = new ProductResponse();
+//        p.setAccountNumber(model.getAccountNumber());
+//        return p;
+//    }
 
     @Override
     public Mono<ProductResponse> findById(String id) {

@@ -4,6 +4,7 @@ import com.nttdata.bootcamp.product.model.AccountType;
 import com.nttdata.bootcamp.product.model.ProductType;
 import com.nttdata.bootcamp.product.model.TypeDocument;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -25,6 +26,7 @@ import java.util.UUID;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class ProductResponse {
     private String id = UUID.randomUUID().toString();
     private ProductType productType;

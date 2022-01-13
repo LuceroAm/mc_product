@@ -1,8 +1,6 @@
 package com.nttdata.bootcamp.product.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -21,10 +19,14 @@ import java.util.UUID;
  * </ul>
  * @version 1.0
  */
-@Data
+//@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Document(collection = "product")
+
+@Builder
 public class Product {
     @Id
     private String id = UUID.randomUUID().toString();

@@ -6,7 +6,7 @@ import com.nttdata.bootcamp.product.model.ProductType;
 import com.nttdata.bootcamp.product.model.TypeDocument;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import lombok.Data;
+import lombok.*;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.UUID;
@@ -24,8 +24,13 @@ import java.util.UUID;
  * </ul>
  * @version 1.0
  */
-@Data
+//@Data
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @ApiModel("Model ProductRequest")
+@Builder
 //@Document(collection = "ProductRequest")
 public class ProductRequest {
     @ApiModelProperty(value = "id", position = 1)

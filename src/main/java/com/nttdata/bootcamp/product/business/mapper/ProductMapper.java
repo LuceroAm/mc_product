@@ -10,9 +10,13 @@ import org.mapstruct.Mapping;
 @Mapper
 public interface ProductMapper {
 
-    @Mapping(source ="accountNumber" , target="accountNumber")
-    Product toEntity (ProductRequest request);
+//    @Mapping(source ="request.amount" , target="amount")
+    Product toEntity (ProductRequest request)
+//    {
+//        request.getAccountNumber();
+//    }
+    ;
 
-    @Mapping(source ="accountNumber" , target="accountNumber")
+//    @Mapping(source ="model.accountNumber" , target="accountNumber")
     ProductResponse toResponse (Product model);
 }
