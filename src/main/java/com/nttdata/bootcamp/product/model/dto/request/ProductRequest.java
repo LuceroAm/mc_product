@@ -7,6 +7,7 @@ import com.nttdata.bootcamp.product.model.TypeDocument;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.UUID;
 
@@ -25,6 +26,7 @@ import java.util.UUID;
  */
 @Data
 @ApiModel("Model ProductRequest")
+//@Document(collection = "ProductRequest")
 public class ProductRequest {
     @ApiModelProperty(value = "id", position = 1)
     private String id = UUID.randomUUID().toString();
