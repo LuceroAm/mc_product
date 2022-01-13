@@ -33,7 +33,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Mono<ProductResponse> create(ProductRequest productRequest) {
-        log.info("Guardando datos del Producto");
+        log.info("Guardar datos del Producto");
         return productRepository.save(setProduct(productRequest))
                  .map(this::getProduct);
     }
@@ -73,7 +73,9 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Flux<ProductResponse> findAll() {
-        return null;
+        log.info("Obtener todos los registros de Productos");
+        return productRepository.findAll()
+                .map(this::getProduct);
     }
 
     @Override
