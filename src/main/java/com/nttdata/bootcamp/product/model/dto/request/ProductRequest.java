@@ -1,12 +1,15 @@
 package com.nttdata.bootcamp.product.model.dto.request;
 
 import com.nttdata.bootcamp.product.model.AccountType;
-import com.nttdata.bootcamp.product.model.Product;
+import com.nttdata.bootcamp.product.model.CreditType;
 import com.nttdata.bootcamp.product.model.ProductType;
 import com.nttdata.bootcamp.product.model.TypeDocument;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.UUID;
 
@@ -24,7 +27,10 @@ import java.util.UUID;
  * @version 1.0
  */
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 @ApiModel("Model ProductRequest")
+@Builder
 public class ProductRequest {
     @ApiModelProperty(value = "id", position = 1)
     private String id = UUID.randomUUID().toString();
@@ -35,21 +41,24 @@ public class ProductRequest {
     @ApiModelProperty(value = "accountType", position = 3)
     private AccountType accountType;
 
-    @ApiModelProperty(value = "accountNumber", position = 4)
+    @ApiModelProperty(value = "creditType", position = 4)
+    private CreditType creditType;
+
+    @ApiModelProperty(value = "accountNumber", position = 5)
     private String accountNumber;
 
-    @ApiModelProperty(value = "typeDocument", position = 5)
+    @ApiModelProperty(value = "typeDocument", position = 6)
     private TypeDocument typeDocument;
 
-    @ApiModelProperty(value = "numberDocument", position = 6)
+    @ApiModelProperty(value = "numberDocument", position = 7)
     private String numberDocument;
 
-    @ApiModelProperty(value = "cardNumber", position = 7)
+    @ApiModelProperty(value = "cardNumber", position = 8)
     private String cardNumber;
 
-    @ApiModelProperty(value = "password", position = 8)
+    @ApiModelProperty(value = "password", position = 9)
     private String password;
 
-    @ApiModelProperty(value = "amount", position = 9)
+    @ApiModelProperty(value = "amount", position = 10)
     private String amount;
 }
