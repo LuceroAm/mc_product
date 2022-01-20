@@ -5,6 +5,9 @@ import com.nttdata.bootcamp.product.model.Product;
 import com.nttdata.bootcamp.product.model.dto.request.ProductRequest;
 import com.nttdata.bootcamp.product.model.dto.response.ProductResponse;
 import com.nttdata.bootcamp.product.repository.ProductRepository;
+import com.nttdata.bootcamp.product.util.ProductBuilder;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,10 +39,13 @@ public class ProductServiceImpl implements ProductService {
         log.info("Guardar datos del Producto");
         return productRepository.save(setProduct(productRequest))
                  .map(this::getProduct);
+//                 .map(product -> ProductBuilder
+//                         .productEntityToProductResponse(product));
     }
 
     private Product setProduct (ProductRequest request){
         return Product.builder()
+                .id(request.getId())
                 .productType(request.getProductType())
                 .accountType(request.getAccountType())
                 .creditType(request.getCreditType())
@@ -68,7 +74,8 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Mono<ProductResponse> findById(String id) {
-        return null;
+        return productRepository.findById(id)
+                .map(this::getProduct);
     }
 
     @Override
@@ -80,11 +87,21 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Mono<ProductResponse> update(ProductRequest productRequest) {
-        return null;
+        log.info("Actualizar un registro de un Producto");
+        return productRepository.findById(productRequest.getId())
+            .flatMap(customerDB -> {
+          return create(productRequest);
+            })
+            .switchIfEmpty(Mono.empty());
     }
 
     @Override
     public Mono<ProductResponse> remove(String id) {
-        return null;
+        log.info("Eliminar un registro de un Producto");
+        return productRepository
+                .findById(id)
+                .map(this::getProduct)
+                .flatMap(productResponse ->  productRepository.deleteById(productResponse.getId())
+                .thenReturn(productResponse));
     }
 }
