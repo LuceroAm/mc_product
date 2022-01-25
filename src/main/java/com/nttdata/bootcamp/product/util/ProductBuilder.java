@@ -7,12 +7,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@AllArgsConstructor
-@Data
-@NoArgsConstructor
 public class ProductBuilder {
 
-    public static Product productRequestToProductEntity (ProductRequest request){
+    public final static Product productRequestToProductEntity (ProductRequest request){
         return Product.builder()
                 .id(request.getId())
                 .productType(request.getProductType())

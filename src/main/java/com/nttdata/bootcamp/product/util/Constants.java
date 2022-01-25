@@ -1,7 +1,7 @@
 package com.nttdata.bootcamp.product.util;
 
 public class Constants {
-    public final static String MAIN_PATH = "/prodcut";
+    public final static String MAIN_PATH = "/product";
     public final static String ID = "/{id}";
 
 
@@ -17,7 +17,7 @@ public class Constants {
     public final static String UPDATE_ID_VALUE="Metodo a traves del cual se Actualiza la informacion del Producto mediante su Id ";
     public final static String UPDATE_ID_NOTE="Para Actualizar los  datos del Producto , sera necesario enviar todo el registro con los datos ya actualizados junto a sus Id`s ";
 
-    public final static String DELETE_ID_VALUE="Metodo a traves del cual se Elimina la informacion de la  Encuesta mediante su Id ";
-    public final static String DELETE_ID_NOTE="Para eliminar los  datos de una  Encuesta , sera necesario enviar el Id de la Operacion ";
+    public final static String DELETE_ID_VALUE="Metodo a traves del cual se Elimina la informacion del Producto mediante su Id ";
+    public final static String DELETE_ID_NOTE="Para eliminar los  datos de un Producto , sera necesario enviar el Id de la Producto ";
 
 }
