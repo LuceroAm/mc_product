@@ -60,7 +60,7 @@ public class ProductServiceImpl implements ProductService {
     public Mono<ProductResponse> update(ProductRequest productRequest) {
         log.info("Actualizar un registro de un Producto");
         return productRepository.findById(productRequest.getId())
-            .flatMap(customerDB -> {
+            .flatMap(productDB -> {
           return create(productRequest);
             })
             .switchIfEmpty(Mono.empty());
