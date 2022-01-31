@@ -1,3 +1,11 @@
 
 server:
   port: 9011
+
+spring:
+  application:
+    name: service-product
+  data:
+    mongodb:
+      uri: mongodb://boot1:3hda6HbmOTcwEZ7qYMvLr4uXKoOcCoTTjAKt8Onoj9O5gyHE9xAob5v1vKudhXfj5LKobrwCcmUT2JQIYY5BKg==@boot1.mongo.cosmos.azure.com:10255/?ssl=true&retrywrites=false&replicaSet=globaldb&maxIdleTimeMS=120000&appName=@boot1@
+      database: DBexample

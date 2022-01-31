@@ -26,6 +26,7 @@ public class ProductBuilder {
 
     public static ProductResponse productEntityToProductResponse(Product model){
         return ProductResponse.builder()
+                .id(model.getId())
                 .productType(model.getProductType())
                 .accountType(model.getAccountType())
                 .creditType(model.getCreditType())
