@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.util.Map;
+
 @RestController
 @RequestMapping(Constants.MAIN_PATH)
 @Api(tags = "Microservicio Product", description = "Esta API se encarga de la gestion de los Productos")
@@ -61,5 +63,12 @@ public class ProductController {
             .flatMap(productResponse -> Mono.just(ResponseEntity.ok(productResponse)))
             .switchIfEmpty(Mono.just(ResponseEntity.notFound().build()));
   }
+
+    @GetMapping(Constants.GETFILTER)
+    @ApiOperation(value = Constants.GETDATA_VALUE, notes = Constants.GETDATA_NOTE)
+    public Mono<ProductResponse> getData(@RequestParam Map<String, String> params){
+        log.info("Metoth getData ");
+        return productService.getData(params);
+    }
 
 }

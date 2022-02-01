@@ -11,6 +11,8 @@ import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.util.Map;
+
 
 /**
  * <b>Class</b>: {@link ProductServiceImpl}<br/>
@@ -75,5 +77,23 @@ public class ProductServiceImpl implements ProductService {
                         .productEntityToProductResponse(product))
                 .flatMap(productResponse ->  productRepository.deleteById(productResponse.getId())
                 .thenReturn(productResponse));
+    }
+
+    @Override
+    public Mono<ProductResponse> getData(Map<String, String> params) {
+        log.info("Busqueda Dinamica");
+        String accountNumber;
+        if (!params.isEmpty()) {
+            accountNumber = params.get("accountNumber");
+            return productRepository.findAll()
+                    .map(product -> ProductBuilder
+                            .productEntityToProductResponse(product))
+                    .filter(productResponse ->
+                            productResponse.getAccountNumber()
+                                    .equals(accountNumber))
+                    .next()
+                    ;
+        }
+        return null;
     }
 }

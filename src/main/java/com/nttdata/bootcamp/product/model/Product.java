@@ -33,9 +33,4 @@ public class Product {
     private AccountType accountType;
     private CreditType creditType;
     private String accountNumber;
-    private TypeDocument typeDocument;
-    private String numberDocument;
-    private String cardNumber;
-    private String password;
-    private String amount;
 }

@@ -3,7 +3,6 @@ package com.nttdata.bootcamp.product.model.dto.request;
 import com.nttdata.bootcamp.product.model.AccountType;
 import com.nttdata.bootcamp.product.model.CreditType;
 import com.nttdata.bootcamp.product.model.ProductType;
-import com.nttdata.bootcamp.product.model.TypeDocument;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;

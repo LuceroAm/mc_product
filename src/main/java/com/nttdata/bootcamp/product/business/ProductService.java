@@ -2,8 +2,11 @@ package com.nttdata.bootcamp.product.business;
 
 import com.nttdata.bootcamp.product.model.dto.request.ProductRequest;
 import com.nttdata.bootcamp.product.model.dto.response.ProductResponse;
+import org.springframework.web.bind.annotation.RequestParam;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+
+import java.util.Map;
 
 /**
  * <b>Class</b>: {@link ProductService}<br/>
@@ -20,12 +23,11 @@ import reactor.core.publisher.Mono;
  */
 public interface ProductService {
     Mono<ProductResponse> create(ProductRequest productRequest);
-
     Mono<ProductResponse> findById(String id);
-
     Flux<ProductResponse> findAll();
-
     Mono<ProductResponse> update(ProductRequest productRequest);
-
     Mono<ProductResponse> remove(String id);
+    Mono<ProductResponse> getData(Map<String, String> params);
+
+
 }

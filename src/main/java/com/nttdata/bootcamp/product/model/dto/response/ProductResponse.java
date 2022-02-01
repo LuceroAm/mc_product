@@ -3,7 +3,6 @@ package com.nttdata.bootcamp.product.model.dto.response;
 import com.nttdata.bootcamp.product.model.AccountType;
 import com.nttdata.bootcamp.product.model.CreditType;
 import com.nttdata.bootcamp.product.model.ProductType;
-import com.nttdata.bootcamp.product.model.TypeDocument;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
