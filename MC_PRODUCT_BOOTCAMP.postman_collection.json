@@ -1,0 +1,105 @@
+{
+	"info": {
+		"_postman_id": "96a825f9-354b-4f24-b884-5f5db2065cb4",
+		"name": "MC_PRODUCT_BOOTCAMP",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CREATE PRODUCT",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"productType\": 0,\r\n  \"accountType\": 0,\r\n    \"creditType\": 0,\r\n  \"accountNumber\": \"987654321\"\r\n \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9011/product",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9011",
+					"path": [
+						"product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET ALL",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"typeCustomer\": 0,\r\n  \"entityName\": 0,\r\n    \"typeDocument\": 0,\r\n  \"numberDocument\": \"74562326\",\r\n  \"telephone\": 55555555,\r\n  \"address\": \"abcdc\",\r\n  \"email\": \"xsxc@cd.com\"\r\n \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9011/product",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9011",
+					"path": [
+						"product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET FILTER ACCOUNT_NUMBER",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9011/product?accountNumber=987654321",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9011",
+					"path": [
+						"product"
+					],
+					"query": [
+						{
+							"key": "accountNumber",
+							"value": "987654321"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
