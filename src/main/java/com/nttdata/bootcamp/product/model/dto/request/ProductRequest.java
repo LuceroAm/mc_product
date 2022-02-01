@@ -46,18 +46,4 @@ public class ProductRequest {
     @ApiModelProperty(value = "accountNumber", position = 5)
     private String accountNumber;
 
-    @ApiModelProperty(value = "typeDocument", position = 6)
-    private TypeDocument typeDocument;
-
-    @ApiModelProperty(value = "numberDocument", position = 7)
-    private String numberDocument;
-
-    @ApiModelProperty(value = "cardNumber", position = 8)
-    private String cardNumber;
-
-    @ApiModelProperty(value = "password", position = 9)
-    private String password;
-
-    @ApiModelProperty(value = "amount", position = 10)
-    private String amount;
 }
